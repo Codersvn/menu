@@ -25,15 +25,15 @@ class GenerateMenuFrontEndController extends Controller
 
         return $view;
     }
-    public function renderUlOnly($menu_id, $options = {})
+    public function renderUlOnly($menu_id, $options = null)
     {
         $getMenus = ItemMenu::where('menu_id', $menu_id)
             ->where('parent_id', 0)
             ->get();
 
         $data = [
-            'getMenus'   => $getMenus,
-            'class_menu' => $class_menu,
+            'getMenus' => $getMenus,
+            'options'  => $options,
         ];
 
         $view = View::make('menu.menu_ul_only', $data);
