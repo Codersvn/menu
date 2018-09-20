@@ -21,6 +21,6 @@ $api->version('v1', function ($api) {
     	$api->get('menus/{id}', 'VCComponent\Laravel\Menu\Http\Controllers\Admin\Menu\MenuController@show');
         $api->post('menus/{id}/items', 'VCComponent\Laravel\Menu\Http\Controllers\Admin\Menu\MenuController@addItem');
     	$api->put('menus/{id}', 'VCComponent\Laravel\Menu\Http\Controllers\Admin\Menu\MenuController@update');
-        $api->post('update/menus-item', 'VCComponent\Laravel\Menu\Http\Controllers\Admin\Menu\MenuController@UpdateMenuItem');
+        $api->post('menus/{id}/save', 'VCComponent\Laravel\Menu\Http\Controllers\Admin\Menu\MenuController@UpdateMenuItem');
     });
 });

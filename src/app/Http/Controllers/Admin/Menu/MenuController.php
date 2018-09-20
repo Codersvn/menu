@@ -113,7 +113,8 @@ class MenuController extends ApiController
     public function UpdateMenuItem(Request $request)
     {
         if ($request->has('menus')) {
-            $item_menus_current_ids = ItemMenu::where('menu_id', 1)->get()->pluck('id');
+            $menu_id = $request->get('menus')['id'];
+            $item_menus_current_ids = ItemMenu::where('menu_id', $menu_id)->get()->pluck('id');
             $menu_ids = [];
             $menu_ids = $this->get_menu_ids($request->get('menus')['menus'], $menu_ids);
             $menu_ids = collect($menu_ids);
